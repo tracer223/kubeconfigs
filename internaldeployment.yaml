@@ -1,0 +1,21 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: events-api
+spec: 
+  selector:
+    matchLabels:
+      app: events-api
+  replicas: 1 # tells deployment to run 1 pod matching the template
+  template:
+    metadata:
+      labels:
+        app: events-api
+    spec:
+      containers:
+      - name: events-api
+        image: joshenderson/internal:v1.0
+        ports:
+        - containerPort: 8082
+            
+        
